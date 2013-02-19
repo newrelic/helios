@@ -1,0 +1,3 @@
+[submodule "vendor/rdmx"]
+	path = vendor/rdmx
+	url = git://github.com/heisters/rdmx.git
