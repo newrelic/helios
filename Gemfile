@@ -9,3 +9,5 @@ gem 'aws-sdk'
 group :test do
   gem 'mocha', :require => false
 end
+
+gemspec
