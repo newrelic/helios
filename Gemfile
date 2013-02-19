@@ -6,5 +6,5 @@ gem 'serialport'
 gem 'narray'
 
 group :test do
-  gem 'mocha'
+  gem 'mocha', :require => false
 end
