@@ -8,6 +8,12 @@ gem 'aws-sdk'
 
 group :test do
   gem 'mocha', :require => false
+  gem 'guard'
+  gem 'guard-test'
+end
+
+group :osx do
+  gem 'growl'
 end
 
 gemspec
