@@ -1,5 +1,6 @@
 module Helios
   class Lights
+    TOTAL_LIGHTS = 70
     class <<self
       def [](idx)
         if (0..30).include?(idx)
@@ -9,7 +10,10 @@ module Helios
         end
       end
 
+      # Lights[3] = [255, 0, 0] =>
+      #      south_dmx[6, 7, 8] = [255, 0, 0]
       def []=(idx, color_array)
+        idx = ((idx - 1) * 3)
         values = idx..(idx+2)
         if (1..30).include?(idx)
           south_dmx[values] = color_array 
