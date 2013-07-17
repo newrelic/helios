@@ -1,6 +1,8 @@
 module Helios
   class Lights
     TOTAL_LIGHTS = 70
+    SOUTH_SIDE_MAX = 25
+
     class <<self
       def [](idx)
         if (0..30).include?(idx)
@@ -15,7 +17,7 @@ module Helios
       def []=(idx, color_array)
         idx = ((idx - 1) * 3)
         values = idx..(idx+2)
-        if (1..30).include?(idx)
+        if (1..SOUTH_SIDE_MAX).include?(idx)
           south_dmx[values] = color_array 
         else
           north_dmx[values] = color_array 
