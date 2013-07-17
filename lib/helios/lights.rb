@@ -2,7 +2,7 @@ require 'rdmx'
 
 module Helios
   class Lights
-    TOTAL_LIGHTS = 70
+    TOTAL_LIGHTS = 50
     SOUTH_SIDE_MAX = 25
 
     class <<self
@@ -24,14 +24,14 @@ module Helios
           return
         end
         if (1..SOUTH_SIDE_MAX).include?(idx)
-          idx = idx - 1
-          dmx = north_dmx
-        else
-          idx = idx - (SOUTH_SIDE_MAX + 1)
           dmx = south_dmx
+        else
+          idx = idx - SOUTH_SIDE_MAX
+          dmx = north_dmx
         end
+        min_range = ((idx-1) * 3)
+        range = min_range..(min_range+2)
 
-        range = idx..idx+2
         dmx[range] = color_array
       end
 
