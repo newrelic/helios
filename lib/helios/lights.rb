@@ -1,3 +1,5 @@
+require 'rdmx'
+
 module Helios
   class Lights
     TOTAL_LIGHTS = 70
