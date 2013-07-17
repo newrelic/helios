@@ -18,11 +18,13 @@ module Helios
       #      south_dmx[6, 7, 8] = [255, 0, 0]
       def []=(idx, color_array)
         idx = ((idx - 1) * 3)
-        values = idx..(idx+2)
         if (1..SOUTH_SIDE_MAX).include?(idx)
+          values = idx..(idx+2)
           south_dmx[values] = color_array 
         else
-          north_dmx[values - SOUTH_SIDE_MAX] = color_array 
+          idx = idx - SOUTH_SIDE_MAX
+          values = idx..(idx+2)
+          north_dmx[values] = color_array 
         end
       end
 
