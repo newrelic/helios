@@ -22,7 +22,7 @@ module Helios
         if (1..SOUTH_SIDE_MAX).include?(idx)
           south_dmx[values] = color_array 
         else
-          north_dmx[values] = color_array 
+          north_dmx[values - SOUTH_SIDE_MAX] = color_array 
         end
       end
 
