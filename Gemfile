@@ -9,3 +9,5 @@ gem 'json', '~> 1.7.7'
 
 gem 'serialport'
 gem 'narray'
+
+gem 'aws-sdk'
