@@ -6,6 +6,7 @@ module Helios
 
     def listen!
       @aws.queues.named('helios').poll do |message|
+        message = JSON.parse(message)
         Dispatcher.new(message).dispatch!
       end
     end

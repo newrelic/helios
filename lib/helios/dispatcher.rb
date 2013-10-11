@@ -5,7 +5,7 @@ module Helios
     def initialize(message)
       @message = message
       @effect_class = @message['effect'] + 'Effect'
-      @effect_class = @effect_class[0].upcase + @effect_class[1..-1]
+      # { "effect": "StaticColor", "args": {"r": 255, "g": 255, "b": 255} }
       @effect_class = Object.const_get(@effect_class)
       @arguments = message['args']
     end
