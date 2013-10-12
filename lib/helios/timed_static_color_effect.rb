@@ -11,7 +11,7 @@ module Helios
     def change!
       @lights.each do |light|
         Lights[light] = [@red, @green, @blue]
-        wait @interval
+        sleep @interval
       end
     end
 
