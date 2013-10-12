@@ -6,7 +6,7 @@ module Helios
       @message = message
       @effect_class = @message['effect'] + 'Effect'
       # { "effect": "StaticColor", "args": {"r": 255, "g": 255, "b": 255} }
-      @effect_class = Object.const_get(@effect_class)
+      @effect_class = Helios.const_get(@effect_class)
       @arguments = message['args']
     end
 
