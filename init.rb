@@ -8,4 +8,4 @@ $LOAD_PATH.concat([
 
 
 require 'helios'
-require 'lib/helios/static_color_effect'
+require 'helios/static_color_effect'
