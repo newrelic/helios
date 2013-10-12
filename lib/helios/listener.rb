@@ -6,8 +6,12 @@ module Helios
 
     def listen!
       @aws.queues.named('helios').poll do |message|
-        message = JSON.parse(message.body)
-        Dispatcher.new(message).dispatch!
+        begin
+          message = JSON.parse(message.body)
+          Dispatcher.new(message).dispatch!
+        rescue Exception => ex
+          puts "ERROR: #{ex.message}"
+        end
       end
     end
   end
