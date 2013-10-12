@@ -9,3 +9,4 @@ $LOAD_PATH.concat([
 
 require 'helios'
 require 'helios/static_color_effect'
+require 'aws-sdk'
