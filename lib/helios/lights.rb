@@ -8,9 +8,10 @@ module Helios
     class <<self
       def [](idx)
         if (0..SOUTH_SIDE_MAX).include?(idx)
-          south_dmx
+          south_dmx[idx..idx+2]
         else
-          north_dmx
+          idx -= SOUTH_SIDE_MAX
+          north_dmx[idx..idx+2]
         end
       end
 
