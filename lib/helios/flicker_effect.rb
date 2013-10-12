@@ -1,5 +1,5 @@
 module Helios
-  class TimedStaticColorEffect
+  class FlickerEffect
     def initialize(args)
       @red = args['r'].to_i
       @green = args['g'].to_i
