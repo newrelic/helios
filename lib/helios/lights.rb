@@ -7,7 +7,7 @@ module Helios
 
     class <<self
       def [](idx)
-        if (0..30).include?(idx)
+        if (0..SOUTH_SIDE_MAX).include?(idx)
           south_dmx
         else
           north_dmx
