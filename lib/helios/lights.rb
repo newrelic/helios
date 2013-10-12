@@ -24,7 +24,7 @@ module Helios
           return
         end
         if (1..SOUTH_SIDE_MAX).include?(idx)
-          dmx = south_dmx
+          dmx = north_dmx
         else
           idx = idx - SOUTH_SIDE_MAX
           dmx = north_dmx
