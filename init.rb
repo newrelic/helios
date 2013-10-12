@@ -9,4 +9,7 @@ $LOAD_PATH.concat([
 
 require 'helios'
 require 'helios/static_color_effect'
+Dir['./lib/helios/*effect.rb'].each do |file|
+  require file.sub(/\.rb/, '')
+end
 require 'aws-sdk'
