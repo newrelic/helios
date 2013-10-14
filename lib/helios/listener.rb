@@ -13,6 +13,7 @@ module Helios
           Dispatcher.new(message).dispatch!
         rescue Exception => ex
           puts "ERROR: #{ex.message}"
+          puts ex.backtrace.join("\n")
         end
       end
     end
