@@ -1,1 +1,1 @@
-web: unicorn rack/simple_client.ru -c ./config/unicorn.rb
+web: unicorn rack/simple_client.ru -p $PORT -c ./config/unicorn.rb
