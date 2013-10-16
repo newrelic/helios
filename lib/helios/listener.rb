@@ -5,6 +5,7 @@ module Helios
     end
 
     def listen!
+      puts "Beginning polling..."
       @aws.queues.named('helios').poll do |message|
         begin
           puts "Received message:"
