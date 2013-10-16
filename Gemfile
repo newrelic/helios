@@ -11,3 +11,5 @@ gem 'serialport'
 gem 'narray'
 
 gem 'aws-sdk'
+
+gem 'unicorn'
