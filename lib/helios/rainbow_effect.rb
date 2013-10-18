@@ -15,7 +15,7 @@ module Helios
 
     def change!
       starting = [RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET]
-      @lights[2].times do
+      @lights.last.times do
         colors = starting
 
         @lights.each do |light|
