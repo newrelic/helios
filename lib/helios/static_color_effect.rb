@@ -8,6 +8,7 @@ module Helios
     end
 
     def change!
+      @lights = Array(@lights)
       @lights.each do |light|
         Lights[light] = [@red, @green, @blue]
       end

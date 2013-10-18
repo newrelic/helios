@@ -5,6 +5,7 @@ module Helios
     end
 
     def listen!
+      puts "Beginning polling..."
       @aws.queues.named('helios').poll do |message|
         begin
           puts "Received message:"
@@ -13,6 +14,7 @@ module Helios
           Dispatcher.new(message).dispatch!
         rescue Exception => ex
           puts "ERROR: #{ex.message}"
+          puts ex.backtrace.join("\n")
         end
       end
     end
