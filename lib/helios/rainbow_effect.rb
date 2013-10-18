@@ -14,10 +14,16 @@ module Helios
     end
 
     def change!
-      colors = [RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET]
-      @lights.each do |light|
-        Lights[light] = colors.first
-        colors.rotate!
+      starting = [RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET]
+      @lights[2].times do
+        colors = starting
+
+        @lights.each do |light|
+          Lights[light] = colors.first
+          colors.rotate!
+        end
+
+        starting.rotate!
       end
     end
 
