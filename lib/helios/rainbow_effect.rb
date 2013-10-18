@@ -24,6 +24,7 @@ module Helios
         end
 
         starting.rotate!
+        sleep 1
       end
     end
 
