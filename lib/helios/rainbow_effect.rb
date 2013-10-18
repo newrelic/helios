@@ -16,7 +16,7 @@ module Helios
     def change!
       starting = [RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET]
       @lights.last.times do
-        colors = starting
+        colors = starting.dup
 
         @lights.each do |light|
           Lights[light] = colors.first
