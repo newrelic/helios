@@ -7,14 +7,25 @@ module Helios
     def listen!
       puts "Beginning polling..."
       @aws.queues.named('helios').poll do |message|
-        begin
-          puts "Received message:"
-          puts "\t#{message.body}"
-          message = JSON.parse(message.body)
-          Dispatcher.new(message).dispatch!
-        rescue Exception => ex
-          puts "ERROR: #{ex.message}"
-          puts ex.backtrace.join("\n")
+        effect_start = Time.now
+        effect_thread = Thread.new do
+          begin
+            puts "Received message:"
+            puts "\t#{message.body}"
+            message = JSON.parse(message.body)
+            Dispatcher.new(message).dispatch!
+          rescue Exception => ex
+            puts "ERROR: #{ex.message}"
+            puts ex.backtrace.join("\n")
+          end
+        end
+
+        loop do
+          break unless effect_thread.alive?
+          sleep 2
+          if Time.now > (effect_start + 10)
+            effect_thread.kill
+          end
         end
       end
     end
