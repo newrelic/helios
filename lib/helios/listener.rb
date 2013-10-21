@@ -25,6 +25,7 @@ module Helios
           sleep 0.001
           if Time.now > (effect_start + 10)
             effect_thread.kill
+            puts "killed long-running thread"
           end
         end
       end
