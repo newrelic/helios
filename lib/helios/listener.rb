@@ -22,7 +22,7 @@ module Helios
 
         loop do
           break unless effect_thread.alive?
-          sleep 2
+          sleep 0.001
           if Time.now > (effect_start + 10)
             effect_thread.kill
           end
