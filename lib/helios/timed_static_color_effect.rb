@@ -5,7 +5,8 @@ module Helios
       @green = args['g'].to_i
       @blue = args['b'].to_i
       @interval = args['interval']
-      @lights = get_lights(args['lights'])
+      lights = args.fetch('lights', [1, '..', 25])
+      @lights = get_lights(lights)
     end
 
     def change!

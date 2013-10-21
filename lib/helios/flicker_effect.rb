@@ -6,7 +6,8 @@ module Helios
       @blue = args['b'].to_i
       @iterations = args['iterations']
       @interval = args.fetch('interval', 0.05)
-      @lights = get_lights(args['lights'])
+      lights = args.fetch('lights', [1, '..', 25])
+      @lights = get_lights(lights)
     end
 
     def change!

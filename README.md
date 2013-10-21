@@ -1,29 +1,21 @@
 # Helios
 
-TODO: Write a gem description
+Helios lets you change the color of the lighting at New Relic's offices.
 
-## Installation
+Create your own color effects by following the existing examples, as long as
+your color effect has a change! method it will run when you queue the effect.
 
-Add this line to your application's Gemfile:
+To queue an effect post json like this to http://newrelic-helios.herokuapp.com:
 
-    gem 'helios'
+  { 'effect' : 'StaticColor', 'args' : { 'r' : 255, 'r' : 0, 'b' : 255 } }
 
-And then execute:
+That will change the color of all the lights to purple. You can pass a specific
+light or series of lights in the args (this example defaults to lights 1-25). If
+you want a specific light just pass the number, for a range use this syntax:
 
-    $ bundle
+  args' : { 'r' : 255, 'r' : 0, 'b' : 255, 'lights' : ['1', '..', '5'] }
 
-Or install it yourself as:
+If you want to create your own effect limit the duration to about 15 seconds
+somehow and we'll merge and deploy it for you.
 
-    $ gem install helios
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Have fun!

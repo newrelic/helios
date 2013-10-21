@@ -9,7 +9,8 @@ module Helios
     VIOLET = [198,0,235]
 
     def initialize(args)
-      @lights = get_lights(args['lights'])
+      lights = args.fetch('lights', [1, '..', 25])
+      @lights = get_lights(lights)
     end
 
     def change!
