@@ -16,7 +16,7 @@ light or series of lights in the args (this example defaults to lights 1-25). If
 you want a specific light just pass the number, for a range use this syntax:
 
 ```
-  args' : { 'r' : 255, 'r' : 0, 'b' : 255, 'lights' : ['1', '..', '5'] }
+  'args' : { 'r' : 255, 'r' : 0, 'b' : 255, 'lights' : ['1', '..', '5'] }
 ```
 
 If you want to create your own effect limit the duration to about 15 seconds
