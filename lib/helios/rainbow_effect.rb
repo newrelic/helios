@@ -1,5 +1,5 @@
 module Helios
-  class RainbowEffect
+  class RainbowEffect < Effect
     RED = [255,0,0]
     ORANGE = [255,127,0]
     YELLOW = [255,255,0]
