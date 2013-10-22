@@ -6,7 +6,10 @@ module Helios
 
     def change!
       @iterations.times do
-        Lights[rand(24) + 1] = [rand(255), rand(255), rand(255)]
+        light = rand(24) + 1
+        color = [rand(255), rand(255), rand(255)]
+
+        set_light(light, color)
       end
     end
   end
