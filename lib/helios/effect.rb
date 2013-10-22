@@ -9,8 +9,12 @@ module Helios
     end
 
     def set_lights(values)
+      threads = []
       values.each_with_index do |value, index|
-        lights_class[index] = value
+        threads << Thread.new do
+          lights_class[index] = value
+        end
+        threads.map(&:join)
       end
     end
 
