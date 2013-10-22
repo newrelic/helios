@@ -16,14 +16,15 @@ module Helios
         @lights.to_a.reverse.each do |light|
           Lights[light] = colors.last
           colors.rotate!
+          sleep 0.1
         end
         @lights.to_a.reverse.each do |light|
           Lights[light] = colors.last
           colors.rotate!(-1)
+          sleep 0.1
         end
 
         starting.rotate!
-        sleep 1
       end
     end
   end
