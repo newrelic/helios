@@ -1,7 +1,7 @@
 module Helios
   class DangerEffect < Effect
     def initialize(args)
-      @iterations = args('iterations', 100]
+      @iterations = args.fetch('iterations', 100)
     end
 
     def change!
