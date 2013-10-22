@@ -8,23 +8,23 @@ describe Helios::CylonEffect do
 
   it "moves the lights left to right and back again" do
     fx = Helios::CylonEffect.new('lights' => [1, 2, 3])
-    lights = sequence('lights')
+    fx.stubs(:lights_class).returns([]) do
+      fx.stubs(:pause).returns(nil) do
+      lights = sequence('lights')
 
-    expected = [
-      [RED, BLACK, BLACK],
-      [BLACK, RED, BLACK],
-      [BLACK, BLACK, RED],
-      [BLACK, BLACK, RED],
-      [BLACK, RED, BLACK],
-      [RED, BLACK, BLACK]
-    ]
+      expected = [
+        [RED, BLACK, BLACK],
+        [BLACK, RED, BLACK],
+        [BLACK, BLACK, RED],
+        [BLACK, BLACK, RED],
+        [BLACK, RED, BLACK],
+        [RED, BLACK, BLACK]
+      ]
 
-    expected.each do |light_settings|
-      fx.expects(:set_lights).with(light_settings).in_sequence(lights)
-    end
+      expected.each do |light_settings|
+        fx.expects(:set_lights).with(light_settings).in_sequence(lights)
+      end
 
-    fx.stub(:lights_class, []) do
-      fx.stub(:pause, nil) do
         fx.change!
       end
     end

@@ -4,21 +4,6 @@ module Helios
       raise NotImplementedError("Effects must implement #change! method")
     end
 
-    def set_light(index, value)
-      lights_class[index] = value
-    end
-
-    def set_lights(values)
-      threads = []
-      values.each_with_index do |value, index|
-        threads << Thread.new do
-          lights_class[index] = value
-        end
-      end
-      threads.map(&:join)
-      nil
-    end
-
     protected
     def get_lights(value)
       if value.is_a?(Array)

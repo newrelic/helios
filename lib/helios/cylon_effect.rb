@@ -29,6 +29,18 @@ module Helios
     def pause
       sleep 0.1
     end
+
+    def set_light(index, value)
+      lights_class[index] = value
+    end
+
+    def set_lights(values)
+      threads = []
+      values.each_with_index do |value, index|
+        lights_class[index] = value
+      end
+      nil
+    end
   end
 end
 

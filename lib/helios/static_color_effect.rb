@@ -13,7 +13,7 @@ module Helios
       t = []
       @lights.each do |light|
         t << Thread.new do
-          set_light(light, [@red, @green, @blue])
+          Lights[light] = [@red, @green, @blue]
         end
       end
       t.map(&:join)

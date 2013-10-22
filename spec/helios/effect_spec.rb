@@ -15,10 +15,10 @@ describe Helios::TestSetIndividualLightsEffect do
   it "sets the lights to all white" do
     fx = Helios::TestSetIndividualLightsEffect.new
     lights = [BLACK, BLACK]
-    fx.stub(:lights_class, lights) do
+    fx.stubs(:lights_class).returns(lights) do
       fx.change!
+      assert_equal [WHITE, WHITE], lights
     end
-    assert_equal [WHITE, WHITE], lights
   end
 end
 
@@ -36,9 +36,9 @@ describe Helios::TestSetMultipleLightsEffect do
   it "sets the lights to all white" do
     fx = Helios::TestSetMultipleLightsEffect.new
     lights = [BLACK, BLACK]
-    fx.stub(:lights_class, lights) do
+    fx.stubs(:lights_class).returns(lights) do
       fx.change!
+      assert_equal [WHITE, GREY], lights
     end
-    assert_equal [WHITE, GREY], lights
   end
 end
