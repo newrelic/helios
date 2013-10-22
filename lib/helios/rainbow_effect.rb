@@ -8,8 +8,7 @@ module Helios
     INDIGO = [75,0,130]
     VIOLET = [198,0,235]
 
-    def initialize(args)
-      args = args.to_a
+    def initialize(args = {})
       lights = args.fetch('lights', [1, '..', 25])
       @lights = get_lights(lights)
     end
