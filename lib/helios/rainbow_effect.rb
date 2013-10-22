@@ -18,7 +18,7 @@ module Helios
       @lights.last.times do
         colors = starting.dup
 
-        @lights.each do |light|
+        @lights.to_a.reverse.each do |light|
           Lights[light] = colors.first
           colors.rotate!
         end
