@@ -24,7 +24,7 @@ module Helios
 
     def set_lights(color)
       @lights.each do |light|
-        Lights[light] = color
+        set_light(light, color)
         sleep @interval
       end
     end
