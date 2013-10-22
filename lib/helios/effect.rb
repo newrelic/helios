@@ -14,8 +14,9 @@ module Helios
         threads << Thread.new do
           lights_class[index] = value
         end
-        threads.map(&:join)
       end
+      threads.map(&:join)
+      nil
     end
 
     protected
