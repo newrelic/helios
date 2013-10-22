@@ -1,7 +1,7 @@
 require 'simplecov'
 require 'minitest/spec'
 require 'minitest/autorun'
-require 'mocha'
+require 'mocha/setup'
 unless ENV['DISABLE_COVERAGE']
   SimpleCov.start do
     add_filter '/spec/'

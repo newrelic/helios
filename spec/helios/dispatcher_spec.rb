@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Helios::Dispatcher do
   it 'creates the correct class' do
-    dis = Helios::Dispatcher.new({'effect' => 'dummy'})
+    dis = Helios::Dispatcher.new({'effect' => 'Dummy'})
 
     dis.effect_class.must_equal DummyEffect
   end
@@ -14,7 +14,7 @@ describe Helios::Dispatcher do
     }
 
     dis = Helios::Dispatcher.new({
-      'effect' => 'dummy',
+      'effect' => 'Dummy',
       'args'   => args
     })
 
