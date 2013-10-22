@@ -8,6 +8,12 @@ module Helios
       lights_class[index] = value
     end
 
+    def set_lights(values)
+      values.each_with_index do |value, index|
+        lights_class[index] = value
+      end
+    end
+
     protected
     def get_lights(value)
       if value.is_a?(Array)
