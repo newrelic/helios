@@ -40,7 +40,7 @@ module Helios
 
       def south_dmx
         # Reference to south DMX
-        @north_dmx ||= Rdmx::Universe.new('/dev/ttyUSB0')
+        @south_dmx ||= Rdmx::Universe.new('/dev/ttyUSB0')
       end
 
       def north_dmx
