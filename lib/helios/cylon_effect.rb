@@ -27,7 +27,6 @@ module Helios
     end
 
     def pause
-      sleep 0.1
     end
 
     def set_light(index, value)
