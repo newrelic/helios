@@ -10,13 +10,9 @@ module Helios
 
     def change!
       @lights = Array(@lights)
-      t = []
       @lights.each do |light|
-        t << Thread.new do
-          Lights[light] = [@red, @green, @blue]
-        end
+        Lights[light] = [@red, @green, @blue]
       end
-      t.map(&:join)
     end
   end
 end
