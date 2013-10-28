@@ -5,13 +5,13 @@ module Helios
     end
 
     def listen!
-      Logger.info "Beginning polling..."
+      Logger.instance.info "Beginning polling..."
       @aws.queues.named('helios').poll do |message|
         effect_start = Time.now
         effect_thread = Thread.new do
           begin
-            Logger.info "Received message:"
-            Logger.info "\t#{message.body}"
+            Logger.instance.info "Received message:"
+            Logger.instance.info "\t#{message.body}"
             message = JSON.parse(message.body)
             Dispatcher.new(message).dispatch!
           rescue Exception => ex
