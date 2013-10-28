@@ -29,7 +29,8 @@ module Helios
     def pause
     end
 
-    def set_lights(values, _lights)
+    def set_lights(values, range)
+      _lights = Array(range)
       values.each_with_index do |color, index|
         Lights[_lights[index]] = color
       end
