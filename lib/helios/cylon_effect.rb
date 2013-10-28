@@ -31,7 +31,7 @@ module Helios
 
     def set_lights(values)
       values.each_with_index do |color, index|
-        Lights[index] = color
+        Lights[@lights[index]] = color
       end
       nil
     end
