@@ -9,7 +9,7 @@ module Helios
     end
 
     def change!
-      size = @lights.length
+      size = @lights.last
       cylon_lights = Array.new(size, BLACK)
       cylon_lights[0] = RED
 
@@ -29,8 +29,8 @@ module Helios
     def pause
     end
 
-    def set_lights(c_lights)
-      c_lights.each_with_index do |color,index|
+    def set_lights(values)
+      values.each_with_index do |color, index|
         Lights[index] = color
       end
       nil
