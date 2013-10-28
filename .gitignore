@@ -17,4 +17,5 @@ test/version_tmp
 tmp
 coverage/
 ./launch_server.sh
+./launch_server.rb
 helios.pid
