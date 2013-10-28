@@ -4,7 +4,7 @@ module Helios
     BLACK = [0,0,0]
 
     def initialize(args = {})
-      lights = args.fetch('lights', [1, '..', 8])
+      lights = args.fetch('lights', [5, '..', 8])
       @lights = get_lights(lights)
     end
 
