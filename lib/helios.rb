@@ -1,3 +1,4 @@
+require 'syslog-logger'
 require 'helios/version'
 require 'helios/lights'
 require 'helios/listener'
