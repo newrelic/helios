@@ -5,18 +5,18 @@ module Helios
     end
 
     def listen!
-      puts "Beginning polling..."
+      Logger.info "Beginning polling..."
       @aws.queues.named('helios').poll do |message|
         effect_start = Time.now
         effect_thread = Thread.new do
           begin
-            puts "Received message:"
-            puts "\t#{message.body}"
+            Logger.info "Received message:"
+            Logger.info "\t#{message.body}"
             message = JSON.parse(message.body)
             Dispatcher.new(message).dispatch!
           rescue Exception => ex
-            puts "ERROR: #{ex.message}"
-            puts ex.backtrace.join("\n")
+            Logger.instance.error "ERROR: #{ex.message}"
+            Logger.instance.error ex.backtrace.join("\n")
           end
         end
 
@@ -25,7 +25,7 @@ module Helios
           sleep 0.001
           if Time.now > (effect_start + 15)
             effect_thread.kill
-            puts "killed long-running thread"
+            Logger.instance.warn "killed long-running thread"
           end
         end
       end
