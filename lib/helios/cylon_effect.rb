@@ -4,12 +4,12 @@ module Helios
     BLACK = [0,0,0]
 
     def initialize(args = {})
-      lights = args.fetch('lights', [1, '..', 25])
+      lights = args.fetch('lights', [1, '..', 8])
       @lights = get_lights(lights)
     end
 
     def change!
-      size = @lights.last + 1
+      size = @lights.last - @lights.first
       cylon_lights = Array.new(size, BLACK)
       cylon_lights[0] = RED
 
@@ -29,14 +29,10 @@ module Helios
     def pause
     end
 
-    def set_light(index, value)
-      lights_class[index] = value
-    end
-
     def set_lights(values)
       threads = []
-      values.each_with_index do |value, index|
-        lights_class[index] = value
+      lights.each_with_index do |color, index|
+        Lights[@lights[index]] = color
       end
       nil
     end
