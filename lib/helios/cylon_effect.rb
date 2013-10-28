@@ -9,7 +9,7 @@ module Helios
     end
 
     def change!
-      size = @lights.last
+      size = @lights.length
       cylon_lights = Array.new(size, BLACK)
       cylon_lights[0] = RED
 
