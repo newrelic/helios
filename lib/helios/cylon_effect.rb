@@ -29,14 +29,9 @@ module Helios
     def pause
     end
 
-    def set_light(index, value)
-      lights_class[index] = value
-    end
-
-    def set_lights(values)
-      threads = []
-      values.each_with_index do |value, index|
-        Lights[index] = value
+    def set_lights(c_lights)
+      c_lights.each_with_index do |color, index|
+        Lights[@lights[index]] = color
       end
       nil
     end
