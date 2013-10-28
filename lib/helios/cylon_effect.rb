@@ -14,14 +14,14 @@ module Helios
       cylon_lights[0] = RED
 
       size.times do
-        set_lights(cylon_lights)
+        set_lights(cylon_lights, @lights)
         cylon_lights.rotate!(-1)
         pause
       end
 
       size.times do
         cylon_lights.rotate!
-        set_lights(cylon_lights)
+        set_lights(cylon_lights, @lights)
         pause
       end
     end
@@ -29,9 +29,9 @@ module Helios
     def pause
     end
 
-    def set_lights(values)
+    def set_lights(values, _lights)
       values.each_with_index do |color, index|
-        Lights[@lights[index]] = color
+        Lights[_lights[index]] = color
       end
       nil
     end
