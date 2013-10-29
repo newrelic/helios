@@ -5,7 +5,7 @@ module Helios
 
     def initialize(args = {})
       lights = args.fetch('lights', [1, '..', 25])
-      iterations = args.fetch('iterations', 1)
+      iterations = args.fetch('iterations', 5)
       @lights = get_lights(lights)
     end
 
