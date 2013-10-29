@@ -5,6 +5,7 @@ module Helios
 
     def initialize(args = {})
       lights = args.fetch('lights', [1, '..', 25])
+      iterations = args.fetch('iterations', 1)
       @lights = get_lights(lights)
     end
 
@@ -12,7 +13,9 @@ module Helios
       size = @lights.last - @lights.first
       cylon_lights = Array.new(size, BLACK)
       cylon_lights[0] = RED
-      5.times do
+
+      iterations.times do
+
         size.times do
           set_lights(cylon_lights, @lights)
           cylon_lights.rotate!(-1)
@@ -24,7 +27,9 @@ module Helios
           set_lights(cylon_lights, @lights)
           pause
         end
+
       end
+
     end
 
     def pause
