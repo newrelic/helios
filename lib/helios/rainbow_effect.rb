@@ -11,11 +11,12 @@ module Helios
     def initialize(args = {})
       lights = args.fetch('lights', [1, '..', 25])
       @lights = get_lights(lights)
+      @iterations = args('iterations', 5)
     end
 
     def change!
       starting = [RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET]
-      @lights.last.times do
+      @iterations.times do
         colors = starting.dup
 
         @lights.to_a.reverse.each do |light|
