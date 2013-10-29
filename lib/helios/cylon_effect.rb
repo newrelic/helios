@@ -12,17 +12,18 @@ module Helios
       size = @lights.last - @lights.first
       cylon_lights = Array.new(size, BLACK)
       cylon_lights[0] = RED
+      5.times do
+        size.times do
+          set_lights(cylon_lights, @lights)
+          cylon_lights.rotate!(-1)
+          pause
+        end
 
-      size.times do
-        set_lights(cylon_lights, @lights)
-        cylon_lights.rotate!(-1)
-        pause
-      end
-
-      size.times do
-        cylon_lights.rotate!
-        set_lights(cylon_lights, @lights)
-        pause
+        size.times do
+          cylon_lights.rotate!
+          set_lights(cylon_lights, @lights)
+          pause
+        end
       end
     end
 
