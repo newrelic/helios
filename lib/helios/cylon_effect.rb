@@ -11,10 +11,10 @@ module Helios
 
     def change!
       size = @lights.last - @lights.first
-      cylon_lights = Array.new(size, BLACK)
-      cylon_lights[0] = RED
 
       iterations.times do
+        cylon_lights = Array.new(size, BLACK)
+        cylon_lights[0] = RED
 
         size.times do
           set_lights(cylon_lights, @lights)
