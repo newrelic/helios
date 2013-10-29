@@ -11,7 +11,7 @@ module Helios
     def initialize(args = {})
       lights = args.fetch('lights', [1, '..', 25])
       @lights = get_lights(lights)
-      @iterations = args('iterations', 5)
+      @iterations = args.fetch('iterations', 5)
     end
 
     def change!
