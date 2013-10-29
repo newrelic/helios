@@ -7,6 +7,8 @@ module Helios
       lights = args.fetch('lights', [1, '..', 25])
       @iterations = args.fetch('iterations', 5)
       @lights = get_lights(lights)
+      @color = args.values_at('r', 'g', 'b')
+      @color = RED if @color.none?
     end
 
     def change!
@@ -14,7 +16,7 @@ module Helios
 
       @iterations.times do
         cylon_lights = Array.new(size, BLACK)
-        cylon_lights[0] = RED
+        cylon_lights[0] = @color
 
         size.times do
           set_lights(cylon_lights, @lights)
