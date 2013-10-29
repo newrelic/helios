@@ -5,14 +5,14 @@ module Helios
 
     def initialize(args = {})
       lights = args.fetch('lights', [1, '..', 25])
-      iterations = args.fetch('iterations', 5)
+      @iterations = args.fetch('iterations', 5)
       @lights = get_lights(lights)
     end
 
     def change!
       size = @lights.last - @lights.first
 
-      iterations.times do
+      @iterations.times do
         cylon_lights = Array.new(size, BLACK)
         cylon_lights[0] = RED
 
