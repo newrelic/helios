@@ -23,7 +23,7 @@ module Helios
               @multiplier += 0.1
             end
 
-            Lights[@lights] = [@r * @multiplier, @g * @multiplier, @b * @multiplier]
+            Lights[@lights] = [(@r * @multiplier).to_i, (@g * @multiplier).to_i, (@b * @multiplier).to_i]
             sleep 0.1
           end
         end
