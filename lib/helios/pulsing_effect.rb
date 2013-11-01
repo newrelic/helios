@@ -11,12 +11,12 @@ module Helios
       @b = args['b']
       @multiplier = 0
       @enable = args['enable'] == 'true'
-      PulsingEffect.running_effect = nil
+      PulsingEffect.running_effect ||= {}
     end
 
     def change!
-      if @enable && PulsingEffect.running_effect.nil?
-        PulsingEffect.running_effect = Thread.new do
+      if @enable && PulsingEffect.running_effect[@lights].nil?
+        PulsingEffect.running_effect[@lights] = Thread.new do
           loop do
             if @multiplier >= 1
               @multiplier -= 0.1
@@ -29,8 +29,8 @@ module Helios
           end
         end
       else
-        PulsingEffect.running_effect.kill
-        PulsingEffect.running_effect = nil
+        PulsingEffect.running_effect[@lights].kill
+        PulsingEffect.running_effect[@lights] = nil
       end
     end
   end
