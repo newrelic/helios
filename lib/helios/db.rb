@@ -1,3 +1,5 @@
+require 'singleton'
+
 module Helios
   class DB
     include Singleton
