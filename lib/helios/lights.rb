@@ -42,9 +42,9 @@ module Helios
       def load_saved_light_state
         (1..TOTAL_LIGHTS).each do |light_no|
           light_color =
-            JSON.parse(Helios::DB.instance.get("helios::light::#{light_no}"))
+            Helios::DB.instance.get("helios::light::#{light_no}")
           next if light_color.nil?
-          Light[light_no] = light_color
+          Light[light_no] = JSON.parse(light_color)
         end
       end
 
