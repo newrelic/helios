@@ -44,7 +44,7 @@ module Helios
           light_color =
             Helios::DB.instance.get("helios::light::#{light_no}")
           next if light_color.nil?
-          Light[light_no] = JSON.parse(light_color)
+          Lights[light_no] = JSON.parse(light_color)
         end
       end
 
