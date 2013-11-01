@@ -1,3 +1,4 @@
+require 'redis'
 require 'singleton'
 
 module Helios
