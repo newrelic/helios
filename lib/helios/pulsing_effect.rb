@@ -23,8 +23,11 @@ module Helios
             else
               @multiplier += 0.1
             end
+            r = (@r * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
+            r = (@g * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
+            r = (@b * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
 
-            Lights[@lights] = [(@r * @multiplier).to_i, (@g * @multiplier).to_i, (@b * @multiplier).to_i]
+            Lights[@lights] = [r, g, b]
             sleep 0.1
           end
         end
