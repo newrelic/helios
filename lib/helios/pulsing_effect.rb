@@ -10,7 +10,7 @@ module Helios
       @g = args['g']
       @b = args['b']
       @multiplier = 0
-      @enable = args['enable'] == 'true'
+      @enable = args['enable']
       PulsingEffect.running_effect ||= {}
     end
 
