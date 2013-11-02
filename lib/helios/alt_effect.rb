@@ -17,8 +17,12 @@ module Helios
       odd_color = [@odd_red, @odd_green, @odd_blue]
       even_color = [@even_red, @even_green, @even_blue]
 
-      @iterations.times do
-        alt_colors(odd_color, even_color)
+      @iterations.times do |i|
+        if i.even?
+          alt_colors(odd_color, even_color)
+        else
+          alt_colors(even_color, odd_color)
+        end
         sleep @interval
       end
     end
