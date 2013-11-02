@@ -30,8 +30,8 @@ module Helios
               end
             end
             r = (@r * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
-            r = (@g * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
-            r = (@b * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
+            g = (@g * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
+            b = (@b * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
 
             Lights[@lights] = [r, g, b]
             sleep 0.1
