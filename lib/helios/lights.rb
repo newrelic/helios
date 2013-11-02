@@ -34,8 +34,18 @@ module Helios
         end
         min_range = ((idx-1) * 3)
         range = min_range..(min_range+2)
+        Helios::DB.instance.set("helios::light::#{idx}", color_array)
 
         dmx[range] = color_array
+      end
+
+      def load_saved_light_state
+        (1..TOTAL_LIGHTS).each do |light_no|
+          light_color =
+            Helios::DB.instance.get("helios::light::#{light_no}")
+          next if light_color.nil?
+          Lights[light_no] = JSON.parse(light_color)
+        end
       end
 
       def south_dmx

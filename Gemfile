@@ -13,5 +13,6 @@ gem 'narray'
 gem 'aws-sdk'
 
 gem 'unicorn'
+gem 'redis'
 
 gem 'syslog-logger'
