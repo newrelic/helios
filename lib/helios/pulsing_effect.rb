@@ -18,10 +18,16 @@ module Helios
       if @enable && PulsingEffect.running_effect[@lights].nil?
         PulsingEffect.running_effect[@lights] = Thread.new do
           loop do
-            if @multiplier >= 1
+            if Thread.current['darken']
               @multiplier -= 0.1
+              if @multiplier <= 0
+                Thread.current['darken'] = false
+              end
             else
               @multiplier += 0.1
+              if @multiplier >= 1
+                Thread.current['darken'] = true
+              end
             end
             r = (@r * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
             r = (@g * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
