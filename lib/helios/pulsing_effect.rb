@@ -29,9 +29,9 @@ module Helios
                 Thread.current['darken'] = true
               end
             end
-            r = (@r * @multiplier).to_i <= 255 ? (@r * @multiplier).to_i : 255
-            g = (@g * @multiplier).to_i <= 255 ? (@g * @multiplier).to_i : 255
-            b = (@b * @multiplier).to_i <= 255 ? (@b * @multiplier).to_i : 255
+            r = (0..255).include?((@r * @multiplier).to_i) ? (@r * @multiplier).to_i : (@multiplier >= 1 ? 255 : 0) 
+            g = (0..255).include?((@g * @multiplier).to_i) ? (@g * @multiplier).to_i : (@multiplier >= 1 ? 255 : 0) 
+            b = (0..255).include?((@b * @multiplier).to_i) ? (@b * @multiplier).to_i : (@multiplier >= 1 ? 255 : 0)
 
             Lights[@lights] = [r, g, b]
             sleep 0.1
