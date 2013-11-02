@@ -34,7 +34,9 @@ module Helios
         end
         min_range = ((idx-1) * 3)
         range = min_range..(min_range+2)
-        Helios::DB.instance.set("helios::light::#{idx}", color_array)
+        unless color_array.find {|color| color < 0}
+          Helios::DB.instance.set("helios::light::#{idx}", color_array)
+        end
 
         dmx[range] = color_array
       end
