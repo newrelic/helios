@@ -1,5 +1,11 @@
 module Helios
   class Effect
+    def initialize(args)
+      lights = args.fetch('lights', [1, '..', 25])
+      @lights = get_lights(lights)
+      stop_pulsing(@lights) if args['stop_pulsing']
+    end
+
     def change!
       raise NotImplementedError("Effects must implement #change! method")
     end
@@ -18,6 +24,12 @@ module Helios
 
     def lights_class
       Lights
+    end
+
+    private
+    def stop_pulsing(lights)
+      PulsingEffect.running_effect[@lights].kill
+      PulsingEffect.running_effect[@lights] = nil
     end
   end
 end

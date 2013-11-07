@@ -13,7 +13,7 @@ describe Helios::TestSetIndividualLightsEffect do
   BLACK = [0, 0, 0]
 
   it "sets the lights to all white" do
-    fx = Helios::TestSetIndividualLightsEffect.new
+    fx = Helios::TestSetIndividualLightsEffect.new({})
     lights = [BLACK, BLACK]
     fx.stubs(:lights_class).returns(lights) do
       fx.change!
@@ -34,7 +34,7 @@ describe Helios::TestSetMultipleLightsEffect do
   BLACK = [0, 0, 0]
 
   it "sets the lights to all white" do
-    fx = Helios::TestSetMultipleLightsEffect.new
+    fx = Helios::TestSetMultipleLightsEffect.new({})
     lights = [BLACK, BLACK]
     fx.stubs(:lights_class).returns(lights) do
       fx.change!
