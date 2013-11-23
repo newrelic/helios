@@ -28,7 +28,9 @@ module Helios
 
     private
     def stop_pulsing(lights)
-      PulsingEffect.running_effect[@lights].kill
+      if PulsingEffect.running_effect[@lights]
+        PulsingEffect.running_effect[@lights].kill
+      end
       PulsingEffect.running_effect[@lights] = nil
     end
   end
