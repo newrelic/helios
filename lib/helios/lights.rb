@@ -26,6 +26,11 @@ module Helios
           end
           return
         end
+
+        unless color_array.find {|color| color < 0}
+          Helios::DB.instance.set("helios::light::#{idx}", color_array)
+        end
+
         if (1..SOUTH_SIDE_MAX).include?(idx)
           dmx = south_dmx
         else
@@ -34,9 +39,6 @@ module Helios
         end
         min_range = ((idx-1) * 3)
         range = min_range..(min_range+2)
-        unless color_array.find {|color| color < 0}
-          Helios::DB.instance.set("helios::light::#{idx}", color_array)
-        end
 
         dmx[range] = color_array
       end
