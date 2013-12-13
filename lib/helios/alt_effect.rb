@@ -28,9 +28,9 @@ module Helios
     end
 
     def alt_colors(odd_color, even_color)
-      @lights.each do |light|
-        Lights[light] = odd_color
-        Lights[light + 1] = even_color unless @lights.last == light
+      @lights.each_with_index do |light, i|
+          color = i.even? ? even_color : odd_color
+          set_light(light, color)
       end
     end
   end
