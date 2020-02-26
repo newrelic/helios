@@ -1,4 +1,5 @@
 require 'aws-sdk'
+require 'json'
 
 module Helios::Rack
   class SimpleClientService
@@ -36,7 +37,13 @@ module Helios::Rack
 
       def post_message_to_sqs(json)
         sqs = AWS::SQS.new(access_key_id: ENV['AWS_ACCESS_KEY'], secret_access_key: ENV['AWS_SECRET_KEY'])
-        sqs.queues.create('helios').send_message(json)
+        sqs.queues.create(queue_name(json)).send_message(json)
+      end
+
+      def queue_name(json)
+        parsed = JSON.parse(json)
+        floor = parsed.fetch('floor', '28')
+        "helios_#{floor}"
       end
     end
   end

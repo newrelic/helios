@@ -4,9 +4,17 @@ module Helios
       @aws ||= (aws || AWS::SQS.new)
     end
 
+    def queue_name
+      config['queue']
+    end
+
+    def config
+      @config ||= YAML.load_file('config/helios.yml')
+    end
+
     def listen!
       Logger.instance.info "Beginning polling..."
-      @aws.queues.named('helios').poll do |message|
+      @aws.queues.named(queue_name).poll do |message|
         effect_start = Time.now
         effect_thread = Thread.new do
           begin
